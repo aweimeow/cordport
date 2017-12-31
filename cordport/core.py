@@ -15,7 +15,7 @@ class parser(object):
                            "--quote", "minimal"]
 
         self.parse()
-        self.formatter(format_type=kwargs['view'])
+        self.formatter(format_type=view)
 
     def parse(self):
         """
@@ -89,7 +89,7 @@ class parser(object):
         view = views[format_type]
         out = list()
 
-        if format_type is "ovs":
+        if format_type == "ovs":
             for ovs_mac, ovs in self.ovsports.items():
                 port_mac, port = self.port_match(ovs_mac)
                 port_ip = port['port_ip'] if port else "None"
@@ -98,7 +98,7 @@ class parser(object):
                                        ovs_mac=ovs_mac, port_ip=port_ip,
                                        port_mac=port_mac))
 
-        elif format_type is "vm":
+        elif format_type == "vm":
             for port_mac, port in self.ntports.items():
                 ovs_mac, ovs = self.port_match(port_mac)
                 ovs_name = ovs['name'] if ovs else "None"

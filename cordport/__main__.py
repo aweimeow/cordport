@@ -15,9 +15,9 @@ def main():
     parser.add_argument('-n', '--name', type=str,
                         help="Filter by Name")
 
-    args = parser.parse_args()
+    args = vars(parser.parse_args())
 
-    port = PortParser(args)
+    PortParser(**args)
 
 
 if __name__ == '__main__':
