@@ -14,5 +14,7 @@ setup(
             'port = cordport.__main__:main',
         ],
     },
+    url = 'https://github.com/aweimeow/cordport',
+    download_url = 'https://github.com/aweimeow/cordport/archive/1.0.tar.gz'
 )
 
